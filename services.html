@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-разработка</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Основные стили модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 500px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        /* Показ модального окна и фона при активации чекбокса */
+        #contact-form-toggle:checked ~ .modal-backdrop,
+        #contact-form-toggle:checked ~ .modal {
+            display: block;
+        }
+
+        .close {
+            cursor: pointer;
+            font-size: 1.5rem;
+            float: right;
+            border: none;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"></div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+        <label for="menu-toggle" class="menu-toggle-label">Меню</label>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="semone.html">Первый семестр</a></li>
+                <li><a href="semtwo.html">Второй семестр</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="auth.html">Авторизация</a></li>
+            </ul>
+        </nav>
+        <div class="group-info">
+            <p>Группа: ЭФБО-04-23</p>
+            <p>Меджидов З.З.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="content">
+            <h1 class="mb-4">Наши услуги</h1>
+            <p>Мы предлагаем следующие услуги:</p>
+            <div class="row services-list mb-4">
+                <div class="col-md-4 text-center service-item">
+                    <label for="contact-form-toggle">
+                        <img src="https://cdn-icons-png.flaticon.com/128/1903/1903572.png" alt="Сайт-визитка" class="img-fluid mb-2">
+                        <p>Разработка сайта-визитки</p>
+                    </label>
+                </div>
+                <div class="col-md-4 text-center service-item">
+                    <label for="contact-form-toggle">
+                        <img src="https://cdn-icons-png.flaticon.com/128/5537/5537600.png" alt="Корпоративный сайт" class="img-fluid mb-2">
+                        <p>Разработка замкнутого сайта</p>
+                    </label>
+                </div>
+                <div class="col-md-4 text-center service-item">
+                    <label for="contact-form-toggle">
+                        <img src="https://cdn-icons-png.flaticon.com/128/2828/2828990.png" alt="Интернет-магазин" class="img-fluid mb-2">
+                        <p>Создание интернет-магазина</p>
+                    </label>
+                </div>
+            </div>
+            <div class="row photo-grid mb-4">
+                <div class="col-md-4"><img src="https://t4.ftcdn.net/jpg/03/15/21/25/240_F_315212599_fSAoTi4StlAefoOvPdxZUFZB7XXMdpl9.jpg" alt="Фото 1" class="img-fluid"></div>
+                <div class="col-md-4"><img src="https://t3.ftcdn.net/jpg/03/40/59/14/240_F_340591403_1a5sd1hXg78FIq4n6oeoXZtHP9Mjucsm.jpg" alt="Фото 2" class="img-fluid"></div>
+                <div class="col-md-4"><img src="https://t3.ftcdn.net/jpg/03/16/50/42/240_F_316504238_ze9OmRavbFOQYlqAY3FveE2aaw1dTdYJ.jpg" alt="Фото 3" class="img-fluid"></div>
+            </div>
+        </section>
+
+            <!-- Модальное окно -->
+            <input type="checkbox" id="contact-form-toggle" class="d-none">
+            <div class="modal-backdrop"></div>
+            <div class="modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Связаться с нами</h5>
+                    <label for="contact-form-toggle" class="close">&times;</label>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Имя:</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Электронная почта:</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон:</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required pattern="^\+7 \(\d{3}\) \d{3}-\d{4}$" placeholder="+7 (___) ___-____">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Страна:</label>
+                            <input type="text" id="country" name="country" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">Комментарий:</label>
+                            <textarea id="comments" name="comments" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-3 mt-4">
+        <p>&copy; Меджидов З.З., 2024</p>
+    </footer>
+</body>
+</html>

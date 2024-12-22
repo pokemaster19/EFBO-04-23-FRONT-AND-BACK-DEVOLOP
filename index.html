@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-разработка</title>
+    <link rel="stylesheet" href="style.css"> <!-- Подключение внешнего CSS файла -->
+    <style>
+        /* Анимация для заголовка H1 */
+        .main-heading {
+            transition: font-size 0.3s ease;
+        }
+
+        .main-heading:hover {
+            font-size: 2em;
+        }
+
+        /* Анимация для параграфа текста */
+        .text-paragraph {
+            transition: background-color 0.5s ease;
+        }
+
+        /* Анимация для фотографии студента */
+        .profile-photo {
+            transition: transform 0.5s ease;
+        }
+
+        .profile-photo:hover {
+            transform: rotate(360deg);
+        }
+
+        /* Анимация для кнопки "Показать лекции" */
+        #lectures-table {
+            opacity: 0;
+            transition: opacity 0.5s ease, display 0.5s ease;
+        }
+
+        #lectures-table.show {
+            opacity: 1;
+            display: table;
+        }
+
+        /* Стили для формы */
+        #form-message {
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #form-message.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"></div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+        <label for="menu-toggle" class="menu-toggle-label">Меню</label>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="semone.html">Первый семестр</a></li>
+                <li><a href="semtwo.html">Второй семестр</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="auth.html">Авторизация</a></li>
+            </ul>
+        </nav>
+        <div class="group-info">
+            <p>Группа: ЭФБО-04-23</p>
+            <p>Меджидов З.З.</p>
+        </div>
+    </header>
+
+    <main>
+        <aside class="sidebar">
+            <p><strong>Навигация по странице</strong></p>
+            <ul>
+                <li><a href="#frontend">Фронтенд</a></li>
+                <li><a href="#backend">Бэкенд</a></li>
+                <li><a href="#about-us">О нас</a></li> <!-- Новая ссылка "О нас" -->
+            </ul>
+            <img src="https://gifs.obs.ru-moscow-1.hc.sbercloud.ru/ff1f02b17a0f39c53f560186446e6572f7001c2e5125eab55e4690b8396e4740.gif" alt="Веб-разработка Гифка" class="gif-image">
+        </aside>
+
+        <section class="content">
+            <h1 class="main-heading">Добро пожаловать на мой сайт</h1>
+            <p class="text-paragraph">Меня зовут Меджидов З.З. и я начинающий специалист по веб-разработке.</p>
+            <img src="https://img.freepik.com/free-photo/cute-dog-with-sunglasses-posing-for-portrait-generative-ai_188544-12590.jpg?w=1380&t=st=1727652314~exp=1727652914~hmac=babdeef26b8f8de9a333f6c51e3a8874a6141c045ff1733437b7bf5b4739ffc5" alt="Мое фото" class="profile-photo">
+
+            <h2 id="frontend" class="sub-heading">Фронтенд</h2>
+            <p class="text-paragraph">
+                Фронтенд (или клиентская часть) — это то, что видит пользователь. Он включает в себя все визуальные элементы веб-сайта или приложений: кнопки, формы, изображения и текст. Фронтенд разработчики используют языки разметки и стилизации, такие как HTML, CSS и JavaScript, чтобы создавать интерактивные и привлекательные интерфейсы.
+            </p>
+
+            <h2 id="backend" class="sub-heading">Бэкенд</h2>
+            <p class="text-paragraph">
+                Бэкенд (или серверная часть) — это "за кулисами" веб-приложения. Он отвечает за обработку данных, управление пользователями и взаимодействие с базами данных. Бэкенд разработчики используют языки программирования, такие как Python, Ruby, Java или PHP, а также фреймворки и базы данных для создания логики приложений.
+            </p>
+
+            <h2 id="about-us" class="sub-heading">Обо мне</h2> <!-- Добавляем id для навигации -->
+            <p class="text-paragraph">
+                Я рад приветствовать вас на моем сайте. Узнайте больше обо мне, посмотрите карту моего местонахождения и узнайте мои контакты.
+                <br><br>
+                Контакты: +7 (977) 707-25-75
+                <br>
+                Почта: medzhidov.z.z@edu.mirea.ru
+            </p>
+
+            <div class="map-container">
+                <iframe src="https://yandex.ru/map-widget/v1/-/CDTNIGZu " width="600" height="400" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <button id="show-lectures-btn">Показать лекции</button>
+            <table id="lectures-table" style="display: none;">
+                <tr>
+                    <th>Лекция</th>
+                    <th>Тема</th>
+                </tr>
+                <tr>
+                    <td>Лекция 1</td>
+                    <td>Введение в веб-разработку</td>
+                </tr>
+                <tr>
+                    <td>Лекция 2</td>
+                    <td>Основы HTML и CSS</td>
+                </tr>
+                <tr></tr>
+                    <td>Лекция 3</td>
+                    <td>Grid и Flexbox</td>
+                </tr>
+            </table>
+
+            <form id="contact-form">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <button type="submit">Отправить</button>
+            </form>
+            <p id="form-message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Меджидов З.З., 2024</p>
+    </footer>
+
+    <script>
+        // Обработчик события для кнопки "Показать лекции"
+        document.getElementById('show-lectures-btn').addEventListener('click', function() {
+            const table = document.getElementById('lectures-table');
+            table.style.display = 'table';
+            setTimeout(() => {
+                table.classList.add('show');
+            }, 10);
+        });
+
+        // Обработчик события для формы
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const message = document.getElementById('form-message');
+            message.textContent = 'Форма отправлена!';
+            message.classList.add('show');
+            setTimeout(() => {
+                message.classList.remove('show');
+            }, 3000);
+        });
+
+        // Обработчик события для параграфа текста
+        document.querySelectorAll('.text-paragraph').forEach(function(paragraph) {
+            paragraph.addEventListener('click', function() {
+                this.style.backgroundColor = 'yellow';
+            });
+        });
+    </script>
+</body>
+</html>

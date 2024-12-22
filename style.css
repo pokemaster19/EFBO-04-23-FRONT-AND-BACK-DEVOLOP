@@ -1,0 +1,629 @@
+/* Подключение кастомного шрифта "Poppins" через Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Общие стили */
+body {
+    font-family: 'Poppins', sans-serif; /* Используем новый кастомный шрифт */
+    background-color: #faf3e0; /* Мягкий молочный фон */
+    color: #5c5959; /* Темно-серый текст */
+    line-height: 1.8;
+    margin: 0;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+header {
+    background-color: #a47551; /* Коричневый цвет заголовка */
+    color: #fff; /* Белый текст */
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Более мягкая тень */
+    border-radius: 0px; /* Закругляем углы */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 22px;
+    font-size: 25px;
+    border-radius: 12px; /* Более закругленные элементы */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #d2b48c;
+    transform: scale(1.05);
+}
+
+.group-info {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}
+
+main {
+    display: flex;
+    padding: 40px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    padding: 30px;
+    background-color: #f0e3d0;
+    border-radius: 20px; /* Более округлённые края */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-right: 200px;
+    margin-left: -550px;
+}
+
+.sidebar p {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.sidebar ul {
+    list-style-type: disc;
+    margin-left: 30px;
+    color: #8e6043;
+}
+
+.content {
+    flex: 2;
+    padding: 40px;
+    background-color: #fefaf6;
+    border-radius: 35px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Центрирование по горизонтали */
+    padding: 40px; /* Внутренние отступы */
+    box-sizing: border-box;
+}
+
+.content h1 {
+    font-size: 37px;
+    color: #a47551;
+    margin-bottom: 20px;
+}
+
+.content h2 {
+    font-size: 30px;
+    color: #8e6043;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 22px;
+    margin-bottom: 32px;
+}
+
+.services-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.service-item {
+    background-color: #f7e5d2;
+    border: 1px solid #d6bfa4;
+    border-radius: 25px; /* Более округлённые углы */
+    margin: 15px;
+    padding: 30px 20px;
+    width: 30%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Более мягкая тень */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.service-item img {
+    max-width: 100px;
+    border-radius: 20px; /* Закругленные углы для изображений */
+    margin-bottom: 15px;
+}
+
+.service-item label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+#contact-form-toggle {
+    display: none;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 25px; /* Более округлённые углы */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Более мягкая тень */
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+.modal-content h2 {
+    font-size: 26px;
+    color: #a47551;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #7f8c8d;
+}
+
+.close:hover {
+    color: #000;
+}
+
+button {
+    background-color: #a47551;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 12px; /* Более закругленные кнопки */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #8e6043;
+}
+
+/* Стили для полей формы */
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #d6bfa4;
+    border-radius: 12px; /* Более закруглённые поля */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+input:focus, textarea:focus {
+    border-color: #a47551;
+    outline: none;
+    box-shadow: 0 0 6px rgba(164, 117, 81, 0.5);
+}
+
+textarea {
+    height: 120px;
+}
+
+footer {
+    background-color: #34495e;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 20px 20px; /* Закругленные углы для футера */
+}
+
+/* Контейнер для карты */
+.map-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Контейнер для видео */
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Стили для каждого видео */
+.video-container iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    margin-bottom: 20px;
+}
+
+.group-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.profile-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+/* Адаптивность для небольших экранов */
+@media (max-width: 768px) {
+    .video-container iframe {
+        width: 100%;
+        height: auto;
+    }
+}
+/* Базовый стиль ссылки */
+a {
+    color: #a47551; /* Выберите нужный цвет */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+/* Стиль для ссылки при наведении */
+a:hover {
+    color: #d2b48c; /* Цвет при наведении */
+    text-decoration: underline; /* Можно добавить подчеркивание при наведении */
+}
+
+/* Стиль для ссылки при фокусе (например, при клике) */
+a:focus, a:active {
+    color: #3d1717; /* Цвет при фокусе или активной ссылке */
+    outline: none; /* Убираем контур фокуса (по желанию) */
+    box-shadow: none; /* Убираем свечение */
+}
+
+iframe, video {
+    border-radius: 20px; /* Скругленные углы */
+    overflow: hidden; /* Чтобы содержимое соответствовало границам */
+}
+
+.radio-container p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #6b4f35;
+}
+
+.gif-image {
+    width: 200px; /* Ширина гифки */
+    border-radius: 10px; /* Скругленные углы */
+    display: block;
+    margin: 0px auto; /* Центровка */
+    font-size: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Добавление тени */
+}
+.gif-fixed {
+    position: fixed; /* Фиксированное позиционирование */
+    bottom: 20px; /* Отступ от нижней границы */
+    right: 20px; /* Отступ от правой границы */
+    width: 150px; /* Ширина гифки */
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+    z-index: 1000; /* Приоритет отображения над другими элементами */
+}
+
+.nav-menu {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Flexbox для навигационного меню */
+    justify-content: space-around; /* Равномерное распределение */
+}
+
+.product-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 20px;
+    position: relative; /* Для абсолютного позиционирования вложенного элемента */
+}
+
+.grid-container {
+    display: grid; /* Grid Layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    grid-template-rows: repeat(2, auto); /* 2 строки */
+    gap: 10px; /* Промежуток между элементами */
+    padding: 20px;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.sidebar a {
+    font-size: 18px; /* Увеличиваем размер текста */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.sidebar a:hover {
+    text-decoration: underline; /* Добавляем подчеркивание при наведении для удобства */
+}
+
+/* Основные стили */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+header, footer {
+    background-color:  #34495e;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Скрываем чекбокс, показываем его замену как кнопку меню */
+.menu-toggle-checkbox {
+    display: none;
+}
+
+.menu-toggle-label {
+    display: none;
+    background-color: #a47551;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Стили для меню */
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    /* Показываем кнопку меню */
+    .menu-toggle-label {
+        display: block;
+    }
+
+    /* Скрываем меню по умолчанию */
+    .navbar {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #a47551(0, 0%, 20%);
+    }
+
+    /* Показываем меню, если чекбокс активен */
+    .menu-toggle-checkbox:checked + .menu-toggle-label + .navbar {
+        display: flex;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Дополнительные стили для маленьких экранов */
+    .profile-photo, .gif-image, .map-container iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .group-info {
+        font-size: 0.8rem;
+    }
+}
+/* Общие стили для сетки */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    gap: 16px; /* Отступы между элементами */
+    padding: 16px;
+}
+
+/* Оформление карточек с фото */
+.photo-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.photo-card h3 {
+    padding: 8px;
+    font-size: 1em;
+}
+
+/* Анимация наведения */
+.photo-card:hover {
+    transform: scale(1.05);
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: 1fr; /* одна колонка на маленьких экранах */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr); /* две колонки для средних экранов */
+    }
+}
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Основные стили для хедера */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    background-image: url('path-to-logo.png'); /* Укажите путь к логотипу */
+    background-size: cover;
+    background-position: center;
+}
+
+.menu-toggle-checkbox {
+    display: none;
+}
+
+.menu-toggle-label {
+    display: none;
+}
+
+.navbar .nav-menu {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar .nav-menu a:hover {
+    color: #64300d;
+}
+
+.group-info {
+    text-align: right;
+    font-size: 14px;
+}
+
+.group-info p {
+    margin: 0;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .menu-toggle-label {
+        display: block;
+        cursor: pointer;
+        font-size: 18px;
+        color: white;
+    }
+
+    .menu-toggle-checkbox:checked + .menu-toggle-label + .navbar .nav-menu {
+        display: block;
+        flex-direction: column;
+        background-color: #34495e;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .navbar .nav-menu {
+        display: none;
+    }
+}
+/* Основные стили для адаптивности */
+.service-item img {
+    max-width: 100%; /* Изображения не выходят за границы */
+    height: auto; /* Сохраняем пропорции */
+}
+
+.service-item {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container, .row {
+    max-width: 100%;
+    overflow: hidden; /* Предотвращает выход за пределы */
+}
+
+/* Для небольших экранов */
+@media (max-width: 768px) {
+    .navbar-nav {
+        width: 100%;
+        overflow: hidden;
+    }
+    .photo-grid img {
+        width: 100%;
+        height: auto; /* Сохраняем пропорции изображений */
+    }
+}
